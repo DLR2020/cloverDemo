@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="yangrui0925" created="Tue Nov 10 10:36:50 CST 2020" guiVersion="5.8.1.10" id="1604975833292" licenseCode="Unlicensed" name="done" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata0">
+<Record fieldDelimiter=";" name="customers" previewAttachment="${DATAIN_DIR}/customers.txt" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="false" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="ID" type="integer"/>
+<Field name="CustomerID" type="string"/>
+<Field name="CompanyName" type="string"/>
+<Field name="ContactName" type="string"/>
+<Field name="ContactTitle" type="string"/>
+<Field name="Country" type="string"/>
+<Field name="Region" type="string"/>
+<Field name="City" type="string"/>
+<Field name="PostalCode" type="string"/>
+<Field name="Address" type="string"/>
+<Field name="Phone" type="string"/>
+<Field eofAsDelimiter="true" name="Fax" type="string"/>
+</Record>
+</Metadata>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<RichTextNote backgroundColor="FAF6D6" folded="false" fontSize="medium" height="184" id="Note0" textColor="444444" width="250" x="100" y="4">
+<attr name="text"><![CDATA[h3. Exercise 1
+Add [Filter|help://com.cloveretl.gui.docs/docs/extfilter.html] component and select only customers that are not from USA.
+
+*Solution:* [exercise1.grf|open://Tutorial/graph/exercise1.grf]
+]]></attr>
+</RichTextNote>
+<RichTextNote backgroundColor="FAF6D6" folded="false" fontSize="medium" height="184" id="Note1" textColor="444444" width="250" x="400" y="4">
+<attr name="text"><![CDATA[h3. Exercise 2
+Add [Reformat|help://com.cloveretl.gui.docs/docs/reformat.html] component and convert Country to upper case.
+
+*Solution:* [exercise2.grf|open://Tutorial/graph/exercise2.grf]
+]]></attr>
+</RichTextNote>
+<RichTextNote backgroundColor="FAF6D6" folded="false" fontSize="medium" height="184" id="Note2" textColor="444444" width="250" x="700" y="4">
+<attr name="text"><![CDATA[h3. Exercise 3
+Add [Aggregate|help://com.cloveretl.gui.docs/docs/aggregate.html] component and count the customers per each country.
+
+*Solution:* [exercise3.grf|open://Tutorial/graph/exercise3.grf]
+]]></attr>
+</RichTextNote>
+<RichTextNote backgroundColor="DEF4AB" folded="false" fontSize="medium" height="84" id="Note3" textColor="444444" width="550" x="250" y="396">
+<attr name="text"><![CDATA[h3. Feel free to modify and play with this graph! 
+]]></attr>
+</RichTextNote>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node guiName="ExtSort" guiX="433" guiY="206" id="EXT_SORT" sortKey="CompanyName(a)" type="EXT_SORT"/>
+<Node fileURL="${DATAIN_DIR}/customers.txt" guiName="FlatFileReader" guiX="74" guiY="231" id="FLAT_FILE_READER" type="FLAT_FILE_READER"/>
+<Node existingSheetsActions="DO_NOTHING" fileURL="${DATAOUT_DIR}/customers.xlsx" guiName="SpreadsheetDataWriter" guiX="792" guiY="247" id="SPREADSHEET_DATA_WRITER" type="SPREADSHEET_WRITER" writeMode="OVERWRITE_SHEET_IN_MEMORY"/>
+<Edge fromNode="EXT_SORT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (input)" outPort="Port 0 (out)" toNode="SPREADSHEET_DATA_WRITER:0"/>
+<Edge fromNode="FLAT_FILE_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (output)" toNode="EXT_SORT:0"/>
+</Phase>
+</Graph>

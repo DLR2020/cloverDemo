@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="yangrui0925" created="Fri Nov 13 14:30:58 CST 2020" guiVersion="5.8.1.10" id="1605505484476" licenseCode="CLP1DFOCUS60381472EX" name="csv-graph" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="," label="csv_out" name="csv_out" previewAttachment="${DATAIN_DIR}/data_export_-_2020-11-06_00_25_12.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field label="Handle" name="Handle" type="string"/>
+<Field label="Title" name="Title" type="string"/>
+<Field label="Body (HTML)" name="Body_HTML" type="string"/>
+<Field label="Vendor" name="Vendor" type="string"/>
+<Field label="Type" name="Type" type="string"/>
+<Field label="Tags" name="Tags" type="string"/>
+<Field label="Published" name="Published" type="string"/>
+<Field label="Option1 Name" name="Option1_Name" type="string"/>
+<Field label="Option1 Value" name="Option1_Value" type="string"/>
+<Field label="Option2 Name" name="Option2_Name" type="string"/>
+<Field label="Option2 Value" name="Option2_Value" type="string"/>
+<Field label="Option3 Name" name="Option3_Name" type="string"/>
+<Field label="Option3 Value" name="Option3_Value" type="string"/>
+<Field label="Variant SKU" name="Variant_SKU" type="string"/>
+<Field label="Variant Grams" name="Variant_Grams" type="string"/>
+<Field label="Variant Inventory Tracker" name="Variant_Inventory_Tracker" type="string"/>
+<Field label="Variant Inventory Qty" name="Variant_Inventory_Qty" type="string"/>
+<Field label="Variant Inventory Policy" name="Variant_Inventory_Policy" type="string"/>
+<Field label="Variant Fulfillment Service" name="Variant_Fulfillment_Service" type="string"/>
+<Field label="Variant Price" name="Variant_Price" type="string"/>
+<Field label="Variant Compare At Price" name="Variant_Compare_At_Price" type="string"/>
+<Field label="Variant Requires Shipping" name="Variant_Requires_Shipping" type="string"/>
+<Field label="Variant Taxable" name="Variant_Taxable" type="string"/>
+<Field label="Variant Barcode" name="Variant_Barcode" type="string"/>
+<Field eofAsDelimiter="true" label="Image Src" name="Image_Src" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="," label="data-in" name="data_in" previewAttachment="${DATAIN_DIR}/data-in.csv" previewAttachmentCharset="UTF-8" quoteChar="both" quotedStrings="true" recordDelimiter="\r\n" skipSourceRows="1" type="delimited">
+<Field name="product_id" type="integer"/>
+<Field name="item_id" type="integer"/>
+<Field name="qty_avail" type="integer"/>
+<Field name="stock" type="string"/>
+<Field name="product_status" type="string"/>
+<Field name="title" type="string"/>
+<Field name="item_name" type="string"/>
+<Field name="drop_ship_fee" scale="1" type="decimal"/>
+<Field name="ship_cost" scale="1" type="decimal"/>
+<Field name="map" scale="1" type="decimal"/>
+<Field name="price" scale="2" type="decimal"/>
+<Field name="custom_price" type="string"/>
+<Field name="prepay_price" scale="2" type="decimal"/>
+<Field name="min_street_price" type="string"/>
+<Field name="msrp" scale="1" type="decimal"/>
+<Field name="supplier_deal_price" type="string"/>
+<Field name="available_from_date" type="string"/>
+<Field name="available_to_date" type="string"/>
+<Field name="product_sku" type="string"/>
+<Field name="item_sku" type="string"/>
+<Field name="mpn" type="string"/>
+<Field name="upc" type="string"/>
+<Field name="asin" type="string"/>
+<Field name="isbn" type="long"/>
+<Field name="ean" type="long"/>
+<Field name="manufacturer" type="string"/>
+<Field name="brand_name" type="string"/>
+<Field name="case_pack_quantity" type="integer"/>
+<Field name="supplier_id" type="integer"/>
+<Field name="supplier_name" type="string"/>
+<Field name="supplier_description" type="string"/>
+<Field name="supplier_return_policy" type="string"/>
+<Field name="supplier_shipping_strategy" type="string"/>
+<Field name="supplier_min_ship_price" scale="1" type="decimal"/>
+<Field name="supplier_stated_handling_time" type="string"/>
+<Field name="supplier_shipping_carriers_used" type="string"/>
+<Field name="supplier_restricted_ship_to_states" type="string"/>
+<Field name="supplier_restricted_marketplaces" type="string"/>
+<Field name="categories" type="string"/>
+<Field name="image_file" type="string"/>
+<Field name="image_height" type="integer"/>
+<Field name="image_width" type="integer"/>
+<Field name="additional_images" type="string"/>
+<Field name="ship_alone" type="integer"/>
+<Field name="ship_freight" type="integer"/>
+<Field name="ship_width" scale="1" type="decimal"/>
+<Field name="ship_length" scale="1" type="decimal"/>
+<Field name="ship_height" scale="1" type="decimal"/>
+<Field name="ship_weight" scale="2" type="decimal"/>
+<Field name="item_dim1" scale="1" type="decimal"/>
+<Field name="item_dim2" scale="1" type="decimal"/>
+<Field name="item_dim3" scale="1" type="decimal"/>
+<Field name="item_weight" scale="2" type="decimal"/>
+<Field name="case_pack_dim1" scale="1" type="decimal"/>
+<Field name="case_pack_dim2" scale="1" type="decimal"/>
+<Field name="case_pack_dim3" scale="1" type="decimal"/>
+<Field name="max_ship_single_box" type="integer"/>
+<Field name="est_avail" type="string"/>
+<Field name="qty_on_order" type="integer"/>
+<Field name="shipping_origin_country" type="string"/>
+<Field name="est_delivery_over_12_days" type="integer"/>
+<Field format="yyyy-MM-dd" name="product_data_change_date" type="date"/>
+<Field format="yyyy-MM-dd" name="item_info_change_date" type="date"/>
+<Field name="product_discontinued_date" type="string"/>
+<Field name="item_discontinued_date" type="string"/>
+<Field format="yyyy-MM-dd" name="product_last_update" type="date"/>
+<Field format="yyyy-MM-dd" name="item_last_update" type="date"/>
+<Field format="yyyy-MM-dd" name="product_create_date" type="date"/>
+<Field format="yyyy-MM-dd" name="item_create_date" type="date"/>
+<Field format="yyyy-MM-dd" name="item_quantity_change_date" type="date"/>
+<Field format="yyyy-MM-dd" name="item_last_processed_date" type="date"/>
+<Field name="is_customized" type="integer"/>
+<Field name="country_of_origin" type="string"/>
+<Field name="condition" type="string"/>
+<Field name="warranty" type="string"/>
+<Field name="details" type="string"/>
+<Field name="attributes" type="string"/>
+<Field name="description" type="string"/>
+<Field eofAsDelimiter="true" name="folder_paths" type="string"/>
+</Record>
+</Metadata>
+<Connection database="MYSQL" dbURL="jdbc:mysql://42.192.157.174:3306/clover_test?useSSL=true" id="JDBC0" jdbcSpecific="MYSQL" name="NewConnection" password="Wskfz001!" type="JDBC" user="root"/>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node fileURL="${DATAIN_DIR}/data-in.csv" guiName="FlatFileReader" guiX="151" guiY="144" id="FLAT_FILE_READER" type="FLAT_FILE_READER"/>
+<Node fileURL="${DATAOUT_DIR}/${OUT_NAME}.csv" guiName="FlatFileWriter" guiX="910" guiY="144" id="FLAT_FILE_WRITER" outputFieldNames="true" type="FLAT_FILE_WRITER"/>
+<Node guiName="Reformat" guiX="518" guiY="160" id="REFORMAT" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.Handle = $in.0.product_id+ $in.0.item_sku;
+	$out.0.Title = $in.0.title;
+	$out.0.Body_HTML = $in.0.description;
+	$out.0.Variant_SKU = $in.0.item_sku;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Edge fromNode="FLAT_FILE_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 0 (output)" toNode="REFORMAT:0"/>
+<Edge fromNode="REFORMAT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (out)" toNode="FLAT_FILE_WRITER:0"/>
+</Phase>
+</Graph>
