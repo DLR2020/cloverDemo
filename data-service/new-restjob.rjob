@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="yangrui0925" created="Fri Nov 27 14:23:36 CST 2020" guiVersion="5.8.1.10" id="1606462980719" licenseCode="CLP1DFOCUS60381472EX" name="new-restjob" nature="restJob" showComponentDetails="true">
+<Global>
+<EndpointSettings>
+<UrlPath>/new-restjob</UrlPath>
+<RequestMethod name="GET"/>
+<RequestParameter id="RestJobParameter1" location="query" name="OUT_NAME" type="string"/>
+</EndpointSettings>
+<RestJobResponseStatus>
+<JobError>
+<ReasonPhrase>Job failed</ReasonPhrase>
+<StatusCode>500</StatusCode>
+</JobError>
+<Success>
+<StatusCode>200</StatusCode>
+</Success>
+<ValidationError>
+<ReasonPhrase>Request validation failed</ReasonPhrase>
+<StatusCode>400</StatusCode>
+</ValidationError>
+</RestJobResponseStatus>
+<Metadata id="Metadata0">
+<Record fieldDelimiter="|" name="requestEcho" recordDelimiter="\r\n" type="delimited">
+<Field name="requestBody" type="string"/>
+<Field name="requestClientIpAddress" type="string"/>
+<Field name="requestContentType" type="string"/>
+<Field name="requestEncoding" type="string"/>
+<Field name="requestHeaders" type="string"/>
+<Field name="requestMethod" type="string"/>
+<Field name="requestParameters" type="string"/>
+</Record>
+</Metadata>
+<GraphParameters>
+<GraphParameterFile fileURL="workspace.prm"/>
+</GraphParameters>
+<RichTextNote backgroundColor="FFFFB0" folded="false" fontSize="medium" height="240" id="Note0" textColor="444444" width="410" x="337" y="34">
+<attr name="text"><![CDATA[h3. REST Job Body
+[Example Request Echo|element://GET_JOB_INPUT0] demonstrates how to access HTTP context in CTL. Replace it with your own transformation logic.
+
+To use input parameters as a component attribute value use *${PARAM_NAME}*. See custom attribute *Custom_Attribute_Example* on [Example Request Echo|element://GET_JOB_INPUT0].
+
+In CTL you can access input parameters using the *getRequestParameter(PARAM_NAME)* function.
+
+To configure the Data Service use [Endpoint Configuration|action://com.cloveretl.gui/com.cloveretl.gui.actions.ChangeGraphEditorTabAction?index=0] tab.]]></attr>
+</RichTextNote>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node fileURL="${DATAIN_DIR}/data-in.csv" guiName="FlatFileReader" guiX="252" guiY="273" id="FLAT_FILE_READER" type="FLAT_FILE_READER"/>
+<Node fileURL="${DATAOUT_DIR}/${OUT_NAME}.csv" guiName="FlatFileWriter" guiX="938" guiY="273" id="FLAT_FILE_WRITER" outputFieldNames="true" type="FLAT_FILE_WRITER"/>
+<Node guiName="Reformat" guiX="619" guiY="314" id="REFORMAT" type="REFORMAT">
+<attr name="transform"><![CDATA[//#CTL2
+
+// Transforms input record into output record.
+function integer transform() {
+	$out.0.Handle = $in.0.product_id+ $in.0.item_sku;
+	$out.0.Title = $in.0.title;
+	$out.0.Body_HTML = $in.0.description;
+	$out.0.Variant_SKU = $in.0.item_sku;
+
+	return ALL;
+}
+
+// Called during component initialization.
+// function boolean init() {}
+
+// Called during each graph run before the transform is executed. May be used to allocate and initialize resources
+// required by the transform. All resources allocated within this method should be released
+// by the postExecute() method.
+// function void preExecute() {}
+
+// Called only if transform() throws an exception.
+// function integer transformOnError(string errorMessage, string stackTrace) {}
+
+// Called during each graph run after the entire transform was executed. Should be used to free any resources
+// allocated within the preExecute() method.
+// function void postExecute() {}
+
+// Called to return a user-defined error message when an error occurs.
+// function string getMessage() {}
+]]></attr>
+</Node>
+<Node guiName="Input" guiX="80" guiY="10" id="RESTJOB_INPUT0" restJobInput="true" type="RESTJOB_INPUT"/>
+<Node attachment="false" contentType="text/csv" encoding="UTF-8" fileURL="${DATAOUT_DIR}/${OUT_NAME}.csv" guiName="Output" guiX="1234" guiY="16" id="RESTJOB_OUTPUT0" metadataName="true" responseFormat="FILE" restJobOutput="true" topLevelArray="true" type="RESTJOB_OUTPUT"/>
+<Edge fromNode="FLAT_FILE_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge1" inPort="Port 0 (in)" outPort="Port 0 (output)" toNode="REFORMAT:0"/>
+<Edge fromNode="FLAT_FILE_WRITER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge3" inPort="Port 0 (in)" outPort="Port 0 (out)" toNode="RESTJOB_OUTPUT0:0"/>
+<Edge fromNode="REFORMAT:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (in)" outPort="Port 0 (out)" toNode="FLAT_FILE_WRITER:0"/>
+<Edge fromNode="RESTJOB_INPUT0:0" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (input)" metadata="Metadata0" outPort="Port 0 (Parameters)" toNode="FLAT_FILE_READER:0"/>
+</Phase>
+</Graph>
